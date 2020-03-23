@@ -1,0 +1,57 @@
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace RestSharpFramework.Models
+{
+
+
+
+
+    public class MarginProfile
+    {
+        public int customerId { get; set; }
+        public string trailerGroup { get; set; }
+        public int fuelSurcharge { get; set; }
+        public bool overrideDefaultFuelSurcharge { get; set; }
+        public bool overrideDefaultLDIMarkup { get; set; }
+        public int truckPayAdjustment { get; set; }
+        public bool overrideDefaultTruckPayAdjustment { get; set; }
+        public bool overrideDefaultMileMarkups { get; set; }
+        public List<MileMarkups> mileMarkups { get; set; }
+    
+        public LdiMarkups ldiMarkups { get; set; }
+        public List<AccessorialMarkup> accessorialMarkups { get; set; }
+    }
+        
+    public class MileMarkups
+    { 
+        public MileMarkups(int mileStart, decimal markup)
+        {
+            MileStart = mileStart;
+            Markup = markup;
+        }
+       public int MileStart { get; set; }
+       public decimal Markup { get; set; }
+    }
+
+        public class LdiMarkups
+        {
+            public int additionalProp1 { get; set; }
+            public int additionalProp2 { get; set; }
+            public int additionalProp3 { get; set; }
+        }
+
+        public class AccessorialMarkup
+        {
+            public string accessorialCode { get; set; }
+            public int markup { get; set; }
+            public bool overrideDefault { get; set; }
+            public bool notRated { get; set; }
+        }
+
+
+
+}
